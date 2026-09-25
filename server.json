@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/research-chain",
   "title": "Research Chain",
   "description": "One call, one paper: everything openly available around it — full text, license, datasets, code…",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "websiteUrl": "https://pipeworx.io/packs/research-chain",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-research-chain",
