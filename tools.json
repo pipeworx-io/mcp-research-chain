@@ -1,0 +1,49 @@
+[
+  {
+    "name": "research_chain",
+    "description": "Everything openly available around a paper, in ONE call: full text, license, datasets, code, and citations. Given a DOI, PMID, or arXiv id, walks paper (Crossref + OpenAlex) -> open copies with PER-COPY license and version (Unpaywall + PubMed Central — never collapses \"free to read\" into \"permitted to reuse\") -> datasets that cite it (DataCite relatedIdentifiers) -> code/materials that implement it (Zenodo, Hugging Face Papers) -> papers that cite it (Semantic Scholar) -> retraction status (Crossref/Retraction Watch). Use for \"what datasets/code are linked to <DOI>\", \"is this paper retracted\", \"find an open copy of <DOI> and its license\", \"who has cited <paper>\". Each leg is independently fetched — a slow/dead upstream is listed in sources_failed rather than failing the whole call.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "doi": {
+          "type": "string",
+          "description": "DOI of the paper, e.g. \"10.1038/s41586-020-2649-2\" (a doi.org URL is also accepted)."
+        },
+        "pmid": {
+          "type": "string",
+          "description": "PubMed ID, e.g. \"32015507\". Resolved to a DOI via NCBI's ID Converter."
+        },
+        "arxiv_id": {
+          "type": "string",
+          "description": "arXiv id, e.g. \"2312.00752\". Resolved to arXiv's own DataCite DOI (10.48550/arXiv.<id>) — best-effort for pre-2022 papers."
+        },
+        "max_datasets": {
+          "type": "number",
+          "description": "Max datasets to return (1-100, default 25). DataCite's `total` count is always returned even when truncated."
+        },
+        "max_citing": {
+          "type": "number",
+          "description": "Max citing papers to return (1-25, default 10)."
+        }
+      },
+      "required": [],
+      "anyOf": [
+        {
+          "required": [
+            "doi"
+          ]
+        },
+        {
+          "required": [
+            "pmid"
+          ]
+        },
+        {
+          "required": [
+            "arxiv_id"
+          ]
+        }
+      ]
+    }
+  }
+]
