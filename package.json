@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-research-chain",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "One call, one paper: everything openly available around it — full text, license, datasets, code, and citations.",
   "type": "module",
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
     "mode": "gateway",
     "slug": "research-chain",
     "gatewaySlug": "research-chain",
-    "sourceHash": "v1-56854437312153a2e593ebd1e517ab68e4d7bd7a665cb5e78ee416bcb75b6a7c",
-    "sourceCommit": "6bae4cfa7b6a73bbe014dc8820a19c80c842b21e"
+    "sourceHash": "v1-e89370f04d8e649bc3cdcd1561fb30986e04955e654da9dd1f4909c55e5f1afd",
+    "sourceCommit": "db27387ed3ef7ec4805d465f7964a7f65f937006"
   }
 }

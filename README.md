@@ -8,7 +8,7 @@ piecemeal — so a caller no longer has to know all six/seven tools to answer
 "what datasets and code are linked to this paper?" or "find an open copy of
 this DOI and its license."
 
-Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1856+ live data sources. This is an independent, unofficial integration — not affiliated with, endorsed by, or published by the upstream provider.
+Part of [Pipeworx](https://pipeworx.io) — an MCP gateway connecting AI agents to 1866+ live data sources. This is an independent, unofficial integration — not affiliated with, endorsed by, or published by the upstream provider.
 
 ## Tools
 
@@ -68,7 +68,7 @@ as the `crossref`, `openalex`, and `unpaywall` packs.
 - <https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/> — DOI/PMID ↔ PMCID resolution. **NCBI moved this off `www.ncbi.nlm.nih.gov/pmc/utils/idconv` in 2026 — the old host 301-redirects here; this pack hits the new host directly.**
 - <https://api.datacite.org/dois> — datasets/software citing the paper (`relatedIdentifiers.relatedIdentifier` search).
 - <https://zenodo.org/api/records> — records related to the paper. **The search field is `metadata.related_identifiers.identifier`, not the bare `related_identifiers.identifier` — the bare field silently matches zero records for every query** (verified live: 0 vs 19 hits for the same DOI).
-- <https://huggingface.co/api/papers/search> — code/implementation search (successor to the shut-down Papers with Code API).
+- Hugging Face — code/implementation search (successor to the shut-down Papers with Code API).
 - <https://api.semanticscholar.org/graph/v1/paper/DOI:{doi}> and `/citations` — citation count + citing papers. Keyless pool is ~1 req/sec cumulative across BOTH endpoints; this pack sequences them with a ~1.1s stagger inside one leg rather than firing both in the same instant, which 429'd one of them on nearly every call before the fix.
 
 **OSF was scoped as a third code/materials source but dropped**: its public
@@ -130,7 +130,7 @@ directly, instead of just this one's:
 }
 ```
 
-Both URLs reach the same gateway and the same 1856+ data sources. The
+Both URLs reach the same gateway and the same 1866+ data sources. The
 only difference is which pack's tools are listed **directly**; `ask_pipeworx`
 reaches all of them from either one.
 
